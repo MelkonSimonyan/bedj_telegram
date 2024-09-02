@@ -11,6 +11,7 @@ function Play() {
 
   const handleClick = () => {
     if (audioRef.current) {
+      window.navigator.vibrate(300);
       audioRef.current.play();
     }
   };
