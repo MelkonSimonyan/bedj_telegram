@@ -1,11 +1,14 @@
 import { createRoot } from "react-dom/client";
+import { InitDataProvider } from "./context/initDataContext.jsx";
+import { GameProvider } from "./context/gameContext.jsx";
 import App from "./App.jsx";
 import "./assets/css/var.css";
 import "./assets/css/style.css";
-import { InitDataProvider } from "./context/initDataContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <InitDataProvider>
-    <App />
+    <GameProvider>
+      <App />
+    </GameProvider>
   </InitDataProvider>
 );
