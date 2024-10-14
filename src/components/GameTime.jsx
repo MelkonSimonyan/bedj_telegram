@@ -7,7 +7,9 @@ function GameTime() {
 
   return (
     <div className="progress">
-      <span className="progress__text">{secondsToMmSsMs(currentTime)}</span>
+      <span className="progress__text">
+        {secondsToMmSsMs(currentTime, false)}
+      </span>
       <span className="progress__row">
         <span
           className="progress__line"

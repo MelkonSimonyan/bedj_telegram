@@ -1,4 +1,4 @@
-export function secondsToMmSsMs(time) {
+export function secondsToMmSsMs(time, mm = true) {
   const ms = Math.floor((time % 1) * 10);
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
@@ -7,8 +7,8 @@ export function secondsToMmSsMs(time) {
     <span>
       {`${minutes < 10 ? "0" : ""}${minutes}:${
         seconds < 10 ? "0" : ""
-      }${seconds}.`}
-      <small>{ms}</small>
+      }${seconds}`}
+      {mm ? <small>.{ms}</small> : <>s</>}
     </span>
   );
 }

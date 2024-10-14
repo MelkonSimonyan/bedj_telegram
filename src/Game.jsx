@@ -3,7 +3,8 @@ import { useInitData } from "./context/initDataContext";
 import { useGame } from "./context/gameContext";
 import GameStart from "./components/GameStart";
 import GamePlay from "./components/GamePlay";
-import GameFinish from "./components/GameFinish";
+import GameLoss from "./components/GameLoss";
+import GameWin from "./components/GameWin";
 import { AnimatePresence } from "framer-motion";
 
 function Game() {
@@ -44,7 +45,7 @@ function Game() {
       };
 
       const endGame = () => {
-        setGameStatus("complete");
+        setGameStatus("win");
       };
 
       audio.addEventListener("loadedmetadata", updateDuration);
@@ -64,7 +65,7 @@ function Game() {
   useEffect(() => {
     if (lives <= 0) {
       setTimeout(() => {
-        setGameStatus("finish");
+        setGameStatus("loss");
       }, 500);
     }
   }, [lives]);
@@ -82,9 +83,9 @@ function Game() {
 
         {gameStatus === "play" && <GamePlay key="GamePlay" />}
 
-        {(gameStatus === "finish" || gameStatus === "complete") && (
-          <GameFinish key="GameFinish" />
-        )}
+        {gameStatus === "loss" && <GameLoss key="GameLoss" />}
+
+        {gameStatus === "win" && <GameWin key="GameWin" />}
       </AnimatePresence>
     </div>
   );

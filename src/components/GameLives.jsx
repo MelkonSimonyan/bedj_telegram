@@ -1,6 +1,6 @@
 import React from "react";
 import { useGame } from "../context/gameContext";
-import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
+import { MdStar } from "react-icons/md";
 
 function GameLives() {
   const { lives, totalLives } = useGame();
@@ -8,8 +8,11 @@ function GameLives() {
   return (
     <div className="lives">
       {[...Array(totalLives)].map((e, i) => (
-        <span className="lives__item" key={i}>
-          {totalLives - i > lives ? <IoHeartOutline /> : <IoHeartSharp />}
+        <span
+          className={`lives__item ${i + 1 > lives ? "" : "is-active"}`}
+          key={i}
+        >
+          <MdStar />
         </span>
       ))}
     </div>

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { FiFastForward } from "react-icons/fi";
 import { motion } from "framer-motion";
-import GameButton from "./GameButton";
 import { useInitData } from "../context/initDataContext";
 import { useGame } from "../context/gameContext";
+import { mmSsMsToSeconds } from "../lib/functions";
+import { fadeAnimation } from "../lib/constants";
+import GameButton from "./GameButton";
 import GameTime from "./GameTime";
 import GameLives from "./GameLives";
 import GameTitle from "./GameTitle";
-import { mmSsMsToSeconds } from "../lib/functions";
-import { fadeAnimation } from "../lib/constants";
 
 function GamePlay() {
   const { initData } = useInitData();
@@ -95,30 +96,47 @@ function GamePlay() {
         <GameTime />
         <GameLives />
       </div>
+      <div className="game__play-equalizer">
+        <div className="game__play-equalizer-left"></div>
+        <div className="game__play-equalizer-right"></div>
+      </div>
+      <div className="game__play-screen-title">
+        <span className="game__play-screen-title-icon">
+          <FiFastForward />
+        </span>
+        {titleData && <GameTitle data={titleData} />}
+      </div>
       <div className="game__play-screen-content">
-        <div className="game__play-screen-inner">
-          {buttonsData && (
-            <div className="game-play">
-              <div className="game-play__column game-play__column_left">
+        {buttonsData && (
+          <div className="game-play">
+            <div className="game-play__column game-play__column_left">
+              <div className="game-play__column-header">
                 <div className="game-play__column-title">Left Deck</div>
+              </div>
+              <div className="game-play__column-content">
                 <GameButton data={buttonsData.left_h} type="rotate" text="H" />
                 <GameButton data={buttonsData.left_l} type="rotate" text="L" />
                 <GameButton data={buttonsData.left_fader} type="fader" />
+              </div>
+              <div className="game-play__column-footer">
                 <GameButton data={buttonsData.left_play} type="play" />
               </div>
-              <div className="game-play__column game-play__column_right">
+            </div>
+            <div className="game-play__column game-play__column_right">
+              <div className="game-play__column-header">
                 <div className="game-play__column-title">Right Deck</div>
+              </div>
+              <div className="game-play__column-content">
                 <GameButton data={buttonsData.right_h} type="rotate" text="H" />
                 <GameButton data={buttonsData.right_l} type="rotate" text="L" />
                 <GameButton data={buttonsData.right_fader} type="fader" />
+              </div>
+              <div className="game-play__column-footer">
                 <GameButton data={buttonsData.right_play} type="play" />
               </div>
             </div>
-          )}
-        </div>
-      </div>
-      <div className="game__play-screen-footer">
-        {titleData && <GameTitle data={titleData} />}
+          </div>
+        )}
       </div>
     </motion.div>
   );

@@ -34,6 +34,22 @@ function App() {
 
   useEffect(() => {
     fetchInitData();
+
+    const images = [
+      "assets/images/logo.svg",
+      "assets/images/start-bg.svg",
+      "assets/images/eq-left.png",
+      "assets/images/eq-right.png",
+      "assets/images/win-bg.svg",
+      "assets/images/loss-bg.svg",
+      "assets/images/win-img.webp",
+      "assets/images/loss-img.gif",
+    ];
+
+    images.forEach((item) => {
+      const img = new Image();
+      img.src = item;
+    });
   }, []);
 
   return (
