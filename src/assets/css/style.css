@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Arial Narrow";
-  src: url("assets/fonts/arial-narrow.woff2") format("woff2");
+  src: url("/assets/fonts/arial-narrow.woff2") format("woff2");
   font-display: swap;
   font-weight: bold;
 }
@@ -198,7 +198,7 @@ body,
   margin: -680px 0 0 -604px;
   width: 1200px;
   height: 1200px;
-  background: url("assets/images/start-bg.svg") 0 0 no-repeat;
+  background: url("/assets/images/start-bg.svg") 0 0 no-repeat;
   background-size: 100% 100%;
   animation: rotate 10s linear 0s infinite;
 }
@@ -267,11 +267,11 @@ body,
 }
 
 .game__win-screen {
-  background-image: url("assets/images/win-bg.svg");
+  background-image: url("/assets/images/win-bg.svg");
 }
 
 .game__loss-screen {
-  background-image: url("assets/images/loss-bg.svg");
+  background-image: url("/assets/images/loss-bg.svg");
 }
 
 .game__win-screen,
@@ -442,12 +442,12 @@ body,
 
 .game__play-equalizer-left {
   left: 0;
-  background-image: url("assets/images/eq-left.png");
+  background-image: url("/assets/images/eq-left.png");
 }
 
 .game__play-equalizer-right {
   left: 50%;
-  background-image: url("assets/images/eq-right.png");
+  background-image: url("/assets/images/eq-right.png");
 }
 
 @keyframes equalizer {
