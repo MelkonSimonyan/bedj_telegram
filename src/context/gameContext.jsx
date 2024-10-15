@@ -10,7 +10,7 @@ export const GameProvider = ({ children }) => {
   const [duration, setDuration] = useState(0);
   const [totalLives, setTotalLives] = useState(3);
   const [lives, setLives] = useState(totalLives);
-  const [gameStatus, setGameStatus] = useState("play");
+  const [gameStatus, setGameStatus] = useState("start");
 
   return (
     <GameContext.Provider

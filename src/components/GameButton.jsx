@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaPlay, FaPause } from "react-icons/fa";
 import { useGame } from "../context/gameContext";
 import { secondsToMmSsMs } from "../lib/functions";
 
@@ -8,7 +7,8 @@ function GameButtonTimer({ data, currentTime }) {
     <div className="panel-row__timer-wrapper">
       {data.actions
         .filter(
-          (item) => currentTime <= item.time + 1 && currentTime >= item.time - 3
+          (item) =>
+            currentTime <= item.time + 0.5 && currentTime >= item.time - 3
         )
         .map((item) => (
           <div
@@ -123,7 +123,24 @@ function GameButton({ data, type, text }) {
           type="button"
           onClick={handleClick}
         >
-          {value === "on" ? <FaPause /> : <FaPlay />}
+          {value === "on" ? (
+            <svg
+              viewBox="0 0 37 37"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="23" y="2" width="7" height="33" rx="1" />
+              <rect x="7" y="2" width="7" height="33" rx="1" />
+            </svg>
+          ) : (
+            <svg
+              viewBox="0 0 37 37"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M35.5 17.634a1 1 0 0 1 0 1.732l-24.75 14.29a1 1 0 0 1-1.5-.867V4.211a1 1 0 0 1 1.5-.866L35.5 17.634Z" />
+            </svg>
+          )}
           <GameButtonTimer data={data} currentTime={currentTime} />
         </button>
       )}

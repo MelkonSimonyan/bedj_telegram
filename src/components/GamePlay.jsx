@@ -110,29 +110,49 @@ function GamePlay() {
         {buttonsData && (
           <div className="game-play">
             <div className="game-play__column game-play__column_left">
-              <div className="game-play__column-header">
-                <div className="game-play__column-title">Left Deck</div>
-              </div>
-              <div className="game-play__column-content">
-                <GameButton data={buttonsData.left_h} type="rotate" text="H" />
-                <GameButton data={buttonsData.left_l} type="rotate" text="L" />
-                <GameButton data={buttonsData.left_fader} type="fader" />
-              </div>
-              <div className="game-play__column-footer">
-                <GameButton data={buttonsData.left_play} type="play" />
+              <div className="game-play__column-inner">
+                <div className="game-play__column-header">
+                  <div className="game-play__column-title">Left Deck</div>
+                </div>
+                <div className="game-play__column-content">
+                  <GameButton
+                    data={buttonsData.left_h}
+                    type="rotate"
+                    text="H"
+                  />
+                  <GameButton
+                    data={buttonsData.left_l}
+                    type="rotate"
+                    text="L"
+                  />
+                  <GameButton data={buttonsData.left_fader} type="fader" />
+                </div>
+                <div className="game-play__column-footer">
+                  <GameButton data={buttonsData.left_play} type="play" />
+                </div>
               </div>
             </div>
             <div className="game-play__column game-play__column_right">
-              <div className="game-play__column-header">
-                <div className="game-play__column-title">Right Deck</div>
-              </div>
-              <div className="game-play__column-content">
-                <GameButton data={buttonsData.right_h} type="rotate" text="H" />
-                <GameButton data={buttonsData.right_l} type="rotate" text="L" />
-                <GameButton data={buttonsData.right_fader} type="fader" />
-              </div>
-              <div className="game-play__column-footer">
-                <GameButton data={buttonsData.right_play} type="play" />
+              <div className="game-play__column-inner">
+                <div className="game-play__column-header">
+                  <div className="game-play__column-title">Right Deck</div>
+                </div>
+                <div className="game-play__column-content">
+                  <GameButton
+                    data={buttonsData.right_h}
+                    type="rotate"
+                    text="H"
+                  />
+                  <GameButton
+                    data={buttonsData.right_l}
+                    type="rotate"
+                    text="L"
+                  />
+                  <GameButton data={buttonsData.right_fader} type="fader" />
+                </div>
+                <div className="game-play__column-footer">
+                  <GameButton data={buttonsData.right_play} type="play" />
+                </div>
               </div>
             </div>
           </div>
