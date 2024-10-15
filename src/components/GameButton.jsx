@@ -33,7 +33,7 @@ function GameButton({ data, type, text }) {
 
   useEffect(() => {
     const item = data.actions.find((item) => {
-      return currentTime <= item.time + 1 && currentTime >= item.time - 1;
+      return currentTime <= item.time + 0.5 && currentTime >= item.time - 1;
     });
 
     if (
