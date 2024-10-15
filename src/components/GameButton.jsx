@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaPlay, FaPause, FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
 import { useGame } from "../context/gameContext";
 import { secondsToMmSsMs } from "../lib/functions";
 
@@ -41,6 +41,10 @@ function GameButton({ data, type, text }) {
       missingItem.time !== item?.time &&
       missingItem.value != value
     ) {
+      if (window.navigator.vibrate) {
+        window.navigator.vibrate(300);
+      }
+
       setError(true);
       setValue(missingItem.value);
       setLives((lives) => lives - 1);
@@ -84,7 +88,7 @@ function GameButton({ data, type, text }) {
         setLives((lives) => lives - 1);
       } else {
         if (window.navigator.vibrate) {
-          window.navigator.vibrate(1);
+          window.navigator.vibrate(50);
         }
 
         setValue(missingItem.value);
