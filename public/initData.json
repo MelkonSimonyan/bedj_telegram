@@ -4,7 +4,7 @@
     "left_h": "up",
     "left_l": "up",
     "left_play": "on",
-    "left_fader": "9",
+    "left_fader": "12",
     "right_h": "up",
     "right_l": "down",
     "right_play": "off",
@@ -14,7 +14,7 @@
     "00:08.0": {
       "button": "right_play",
       "value": "on",
-      "title": "PLAY RIGHT DECk"
+      "title": "PLAY RIGHT DECK"
     },
     "00:10.0": {
       "button": "right_fader",
@@ -68,7 +68,7 @@
     },
     "00:39.0": {
       "button": "right_fader",
-      "value": "11",
+      "value": "12",
       "title": "FADER UP: SLOWLY"
     },
     "01:07.0": {
@@ -83,17 +83,17 @@
     },
     "01:18.0": {
       "button": "right_fader",
-      "value": "8",
+      "value": "11",
       "title": "FADER DOWN: SLOWLY"
     },
     "01:21.0": {
       "button": "right_fader",
-      "value": "7",
+      "value": "9",
       "title": "FADER UP: SLOWLY"
     },
     "01:24.0": {
       "button": "right_fader",
-      "value": "6",
+      "value": "7",
       "title": "FADER DOWN: SLOWLY"
     },
     "01:27.0": {
