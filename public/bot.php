@@ -1,9 +1,13 @@
 <?php
 // Перейти по адресу, чтобы добавить веб хук
-// https://api.telegram.org/bot7629556041:AAGkCnF3NGtl1BuSHMlgAkZ8AyJhtOeNoC8/setWebhook?url=https://melkonsimonyan.github.io/bedj_telegram/bot.php
+// https://api.telegram.org/bot8173609359:AAFg8utJq3uTjOZIt1Sjk_RbTdrzqt_HZpc/setWebhook?url=https://bedj-tg.melkonsimonyan.com/bot.php
 
 // Замените на ваш токен, полученный у BotFather
-$token = '7629556041:AAGkCnF3NGtl1BuSHMlgAkZ8AyJhtOeNoC8';
+$token = '8173609359:AAFg8utJq3uTjOZIt1Sjk_RbTdrzqt_HZpc';
+
+$messageText = 'Learn to DJ Step by Step️ ⚡️';
+$messageBtn = 'Play';
+$messageUrl = 'https://t.me/BeDjTest_bot/BeDj';
 
 // Получаем данные, которые Telegram отправляет на вебхук
 $input = file_get_contents('php://input');
@@ -39,12 +43,15 @@ function sendMessage($chatId, $text)
 // Функция для отправки сообщения с кнопками
 function sendButtons($chatId)
 {
+  global $messageText;
+  global $messageBtn;
+  global $messageUrl;
   $keyboard = array(
     'inline_keyboard' => array(
       array(
         array(
-          'text' => 'Play',
-          'url' => 'https://melkonsimonyan.github.io/bedj_telegram/'
+          'text' => $messageBtn,
+          'url' => $messageUrl
         )
       )
     )
@@ -52,7 +59,7 @@ function sendButtons($chatId)
 
   $data = array(
     'chat_id' => $chatId,
-    'text' => 'Learn to DJ Step by Step️ ⚡️',
+    'text' => $messageText,
     'reply_markup' => json_encode($keyboard)
   );
 

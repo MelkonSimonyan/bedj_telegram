@@ -152,6 +152,7 @@ function GamePlay() {
       exit="exit"
       className="game__screen game__play-screen"
     >
+      {duration == 0 && <div className="game__play-screen-loader"></div>}
       <div className="game__play-screen-header">
         <GameTime currentTime={currentTime} duration={duration} />
         <GameLives lives={lives} />

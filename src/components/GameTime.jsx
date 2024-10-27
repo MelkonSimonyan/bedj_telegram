@@ -8,7 +8,9 @@ function GameTime({ currentTime, duration }) {
       <span className="progress__row">
         <span
           className="progress__line"
-          style={{ width: (currentTime * 100) / duration + "%" }}
+          style={{
+            width: (duration > 0 ? (currentTime * 100) / duration : 0) + "%",
+          }}
         ></span>
       </span>
     </div>
