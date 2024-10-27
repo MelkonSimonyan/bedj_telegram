@@ -1,6 +1,6 @@
 <?php
 // Перейти по адресу, чтобы добавить веб хук
-// https://api.telegram.org/bot7629556041:AAGkCnF3NGtl1BuSHMlgAkZ8AyJhtOeNoC8/setWebhook?url=https://melkonsimonyan.github.io/bot.php
+// https://api.telegram.org/bot7629556041:AAGkCnF3NGtl1BuSHMlgAkZ8AyJhtOeNoC8/setWebhook?url=https://melkonsimonyan.github.io/bedj_telegram/bot.php
 
 // Замените на ваш токен, полученный у BotFather
 $token = '7629556041:AAGkCnF3NGtl1BuSHMlgAkZ8AyJhtOeNoC8';
