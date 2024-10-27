@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useGame } from "../context/gameContext";
 import { secondsToMmSsMs } from "../lib/functions";
 
-function GameTitle({ data }) {
-  const { currentTime } = useGame();
+function GameTitle({ data, currentTime }) {
   const [missingItem, setMissingItem] = useState(null);
 
   useEffect(() => {

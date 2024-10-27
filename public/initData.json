@@ -1,130 +1,245 @@
 {
-  "audio": "music/Transition 2 - Andrew Rayel.mp3",
-  "default": {
-    "left_h": "up",
-    "left_l": "up",
-    "left_play": "on",
-    "left_fader": "12",
-    "right_h": "up",
-    "right_l": "down",
-    "right_play": "off",
-    "right_fader": "0"
-  },
-  "actions": {
-    "00:08.0": {
-      "button": "right_play",
-      "value": "on",
-      "title": "PLAY RIGHT DECK"
+  "levels": [
+    {
+      "title": "",
+      "image": "music/Free HW TG App One Transition.jpg",
+      "audio": "music/Free HW TG App One Transition.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "6",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "on",
+        "right_fader": "6"
+      },
+      "actions": {
+        "00:13.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": " BASS DOWN: INSTANTLY "
+        },
+        "00:16.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": " BASS UP: INSTANTLY "
+        },
+        "00:31.0": {
+          "button": "left_fader",
+          "value": "5",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "00:34.0": {
+          "button": "left_fader",
+          "value": "4",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "00:37.0": {
+          "button": "left_fader",
+          "value": "3",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "00:40.0": {
+          "button": "left_fader",
+          "value": "2",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "00:43.0": {
+          "button": "left_fader",
+          "value": "1",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "00:47.0": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN: SLOWLY"
+        }
+      }
     },
-    "00:10.0": {
-      "button": "right_fader",
-      "value": "1",
-      "title": "FADER UP: SLOWLY"
+    {
+      "title": "DJ Glen",
+      "image": "music/Transition 3 - DJ Glen.jpg",
+      "audio": "music/Transition 3 - DJ Glen.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:09.0": {
+          "button": "right_play",
+          "value": "on",
+          "title": "PLAY RIGHT DECK"
+        },
+        "00:10.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP: INSTANTLY"
+        },
+        "00:25.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "BASS UP: INSTANTLY"
+        },
+        "00:55.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": "BASS DOWN: INSTANTLY"
+        },
+        "01:10.0": {
+          "button": "right_l",
+          "value": "down",
+          "title": "BASS DOWN: INSTANTLY"
+        },
+        "01:25.0": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN: INSTANTLY"
+        },
+        "01:27.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "BASS UP: INSTANTLY"
+        }
+      }
     },
-    "00:13.0": {
-      "button": "right_fader",
-      "value": "2",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:16.0": {
-      "button": "right_fader",
-      "value": "3",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:19.0": {
-      "button": "right_fader",
-      "value": "4",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:22.0": {
-      "button": "right_fader",
-      "value": "5",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:25.0": {
-      "button": "right_fader",
-      "value": "6",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:27.0": {
-      "button": "right_fader",
-      "value": "7",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:30.0": {
-      "button": "right_fader",
-      "value": "8",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:33.0": {
-      "button": "right_fader",
-      "value": "9",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:36.0": {
-      "button": "right_fader",
-      "value": "10",
-      "title": "FADER UP: SLOWLY"
-    },
-    "00:39.0": {
-      "button": "right_fader",
-      "value": "12",
-      "title": "FADER UP: SLOWLY"
-    },
-    "01:07.0": {
-      "button": "left_l",
-      "value": "down",
-      "title": "BASS DOWN: RAPIDLY"
-    },
-    "01:09.0": {
-      "button": "right_l",
-      "value": "up",
-      "title": "BASS UP: INSTANTLY"
-    },
-    "01:18.0": {
-      "button": "right_fader",
-      "value": "11",
-      "title": "FADER DOWN: SLOWLY"
-    },
-    "01:21.0": {
-      "button": "right_fader",
-      "value": "9",
-      "title": "FADER UP: SLOWLY"
-    },
-    "01:24.0": {
-      "button": "right_fader",
-      "value": "7",
-      "title": "FADER DOWN: SLOWLY"
-    },
-    "01:27.0": {
-      "button": "right_fader",
-      "value": "5",
-      "title": "FADER UP: SLOWLY"
-    },
-    "01:30.0": {
-      "button": "right_fader",
-      "value": "4",
-      "title": "FADER DOWN: SLOWLY"
-    },
-    "01:33.0": {
-      "button": "right_fader",
-      "value": "3",
-      "title": "FADER UP: SLOWLY"
-    },
-    "01:36.0": {
-      "button": "right_fader",
-      "value": "2",
-      "title": "FADER DOWN: SLOWLY"
-    },
-    "01:39.0": {
-      "button": "right_fader",
-      "value": "1",
-      "title": "FADER UP: SLOWLY"
-    },
-    "01:41.0": {
-      "button": "right_fader",
-      "value": "0",
-      "title": "FADER UP: SLOWLY"
+    {
+      "title": "Andrew Rayel",
+      "image": "music/Transition 2 - Andrew Rayel.jpg",
+      "audio": "music/Transition 2 - Andrew Rayel.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:08.0": {
+          "button": "right_play",
+          "value": "on",
+          "title": "PLAY RIGHT DECK"
+        },
+        "00:10.0": {
+          "button": "right_fader",
+          "value": "1",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:13.0": {
+          "button": "right_fader",
+          "value": "2",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:16.0": {
+          "button": "right_fader",
+          "value": "3",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:19.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:22.0": {
+          "button": "right_fader",
+          "value": "5",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:25.0": {
+          "button": "right_fader",
+          "value": "6",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:27.0": {
+          "button": "right_fader",
+          "value": "7",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:30.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:33.0": {
+          "button": "right_fader",
+          "value": "9",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:36.0": {
+          "button": "right_fader",
+          "value": "10",
+          "title": "FADER UP: SLOWLY"
+        },
+        "00:39.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP: SLOWLY"
+        },
+        "01:07.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": "BASS DOWN: RAPIDLY"
+        },
+        "01:09.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "BASS UP: INSTANTLY"
+        },
+        "01:18.0": {
+          "button": "right_fader",
+          "value": "11",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "01:21.0": {
+          "button": "right_fader",
+          "value": "9",
+          "title": "FADER UP: SLOWLY"
+        },
+        "01:24.0": {
+          "button": "right_fader",
+          "value": "7",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "01:27.0": {
+          "button": "right_fader",
+          "value": "5",
+          "title": "FADER UP: SLOWLY"
+        },
+        "01:30.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "01:33.0": {
+          "button": "right_fader",
+          "value": "3",
+          "title": "FADER UP: SLOWLY"
+        },
+        "01:36.0": {
+          "button": "right_fader",
+          "value": "2",
+          "title": "FADER DOWN: SLOWLY"
+        },
+        "01:39.0": {
+          "button": "right_fader",
+          "value": "1",
+          "title": "FADER UP: SLOWLY"
+        },
+        "01:41.0": {
+          "button": "right_fader",
+          "value": "0",
+          "title": "FADER UP: SLOWLY"
+        }
+      }
     }
-  }
+  ]
 }

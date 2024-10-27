@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiFastForward } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { useInitData } from "../context/initDataContext";
 import { useGame } from "../context/gameContext";
 import { mmSsMsToSeconds } from "../lib/functions";
 import { fadeAnimation } from "../lib/constants";
@@ -11,8 +10,14 @@ import GameLives from "./GameLives";
 import GameTitle from "./GameTitle";
 
 function GamePlay() {
-  const { initData } = useInitData();
-  const { audio } = useGame();
+  const { setLevelResults, setGameStatus, currentLevel, totalLives } =
+    useGame();
+  const audioRef = useRef(null);
+  const [audio, setAudio] = useState(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [lives, setLives] = useState(totalLives);
+  const livesRef = useRef(lives);
   const [buttonsData, setButtonsData] = useState(null);
   const [titleData, setTitleData] = useState(null);
 
@@ -54,25 +59,80 @@ function GamePlay() {
 
     const titleTempData = [];
 
-    for (let idx in initData.default) {
-      buttonsTempData[idx].default = initData.default[idx];
+    for (let idx in currentLevel.default) {
+      buttonsTempData[idx].default = currentLevel.default[idx];
     }
 
-    for (let idx in initData.actions) {
-      buttonsTempData[initData.actions[idx].button].actions.push({
+    for (let idx in currentLevel.actions) {
+      buttonsTempData[currentLevel.actions[idx].button].actions.push({
         time: mmSsMsToSeconds(idx),
-        value: initData.actions[idx].value,
+        value: currentLevel.actions[idx].value,
       });
 
       titleTempData.push({
         time: mmSsMsToSeconds(idx),
-        title: initData.actions[idx].title,
+        title: currentLevel.actions[idx].title,
       });
     }
 
     setButtonsData(buttonsTempData);
     setTitleData(titleTempData);
   }, []);
+
+  useEffect(() => {
+    if (currentLevel.audio) {
+      audioRef.current = new Audio(currentLevel.audio);
+      setAudio(audioRef.current);
+    }
+  }, [currentLevel]);
+
+  useEffect(() => {
+    if (audio) {
+      const updateDuration = () => {
+        setDuration(audio.duration);
+      };
+
+      const updateCurrentTime = () => {
+        setCurrentTime(audio.currentTime);
+      };
+
+      const startGame = () => {
+        setGameStatus("play");
+      };
+
+      const endGame = () => {
+        setLevelResults((levelResults) => {
+          levelResults[currentLevel.index] = livesRef.current;
+          localStorage.setItem("levelResults", JSON.stringify(levelResults));
+          return levelResults;
+        });
+        setGameStatus("win");
+      };
+
+      audio.addEventListener("loadedmetadata", updateDuration);
+      audio.addEventListener("timeupdate", updateCurrentTime);
+      audio.addEventListener("play", startGame);
+      audio.addEventListener("ended", endGame);
+
+      return () => {
+        audio.removeEventListener("loadedmetadata", updateDuration);
+        audio.removeEventListener("timeupdate", updateCurrentTime);
+        audio.removeEventListener("play", startGame);
+        audio.removeEventListener("ended", endGame);
+      };
+    }
+  }, [audio]);
+
+  useEffect(() => {
+    livesRef.current = lives;
+    if (lives <= 0) {
+      setTimeout(() => {
+        audio.pause();
+        audio.currentTime = 0;
+        setGameStatus("loss");
+      }, 500);
+    }
+  }, [lives]);
 
   useEffect(() => {
     if (buttonsData && titleData) {
@@ -93,8 +153,8 @@ function GamePlay() {
       className="game__screen game__play-screen"
     >
       <div className="game__play-screen-header">
-        <GameTime />
-        <GameLives />
+        <GameTime currentTime={currentTime} duration={duration} />
+        <GameLives lives={lives} />
       </div>
       <div className="game__play-equalizer">
         <div className="game__play-equalizer-left"></div>
@@ -104,7 +164,7 @@ function GamePlay() {
         <span className="game__play-screen-title-icon">
           <FiFastForward />
         </span>
-        {titleData && <GameTitle data={titleData} />}
+        {titleData && <GameTitle data={titleData} currentTime={currentTime} />}
       </div>
       <div className="game__play-screen-content">
         {buttonsData && (
@@ -116,19 +176,33 @@ function GamePlay() {
                 </div>
                 <div className="game-play__column-content">
                   <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
                     data={buttonsData.left_h}
                     type="rotate"
                     text="H"
                   />
                   <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
                     data={buttonsData.left_l}
                     type="rotate"
                     text="L"
                   />
-                  <GameButton data={buttonsData.left_fader} type="fader" />
+                  <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
+                    data={buttonsData.left_fader}
+                    type="fader"
+                  />
                 </div>
                 <div className="game-play__column-footer">
-                  <GameButton data={buttonsData.left_play} type="play" />
+                  <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
+                    data={buttonsData.left_play}
+                    type="play"
+                  />
                 </div>
               </div>
             </div>
@@ -139,19 +213,33 @@ function GamePlay() {
                 </div>
                 <div className="game-play__column-content">
                   <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
                     data={buttonsData.right_h}
                     type="rotate"
                     text="H"
                   />
                   <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
                     data={buttonsData.right_l}
                     type="rotate"
                     text="L"
                   />
-                  <GameButton data={buttonsData.right_fader} type="fader" />
+                  <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
+                    data={buttonsData.right_fader}
+                    type="fader"
+                  />
                 </div>
                 <div className="game-play__column-footer">
-                  <GameButton data={buttonsData.right_play} type="play" />
+                  <GameButton
+                    currentTime={currentTime}
+                    setLives={setLives}
+                    data={buttonsData.right_play}
+                    type="play"
+                  />
                 </div>
               </div>
             </div>

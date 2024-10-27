@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useGame } from "../context/gameContext";
 import { fadeAnimation } from "../lib/constants";
 
 function GameLoss() {
-  const { audio, setGameStatus } = useGame();
-
-  useEffect(() => {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-  }, []);
+  const { setGameStatus } = useGame();
 
   return (
     <motion.div
@@ -21,19 +14,21 @@ function GameLoss() {
       exit="exit"
       className="game__screen game__loss-screen"
     >
-      <div className="game__loss-screen-content">
-        <div className="game__screen-image">
-          <img src="assets/images/loss-img.gif" alt="" />
+      <div className="game__screen-inner">
+        <div className="game__loss-screen-content">
+          <div className="game__screen-image">
+            <img src="assets/images/loss-img.gif" alt="" />
+          </div>
+          <h2>Don't Worry</h2>
+          <button
+            className="btn"
+            onClick={() => {
+              setGameStatus("levels");
+            }}
+          >
+            Play Again
+          </button>
         </div>
-        <h2>Don't Worry</h2>
-        <button
-          className="btn"
-          onClick={() => {
-            setGameStatus("play");
-          }}
-        >
-          Play Again
-        </button>
       </div>
     </motion.div>
   );

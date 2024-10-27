@@ -5,28 +5,25 @@ const GameContext = createContext();
 export const useGame = () => useContext(GameContext);
 
 export const GameProvider = ({ children }) => {
-  const [audio, setAudio] = useState(null);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [totalLives, setTotalLives] = useState(3);
-  const [lives, setLives] = useState(totalLives);
+  const [levelResults, setLevelResults] = useState(
+    localStorage.getItem("levelResults")
+      ? JSON.parse(localStorage.getItem("levelResults"))
+      : []
+  );
+  const [currentLevel, setCurrentLevel] = useState({});
   const [gameStatus, setGameStatus] = useState("start");
+  const [totalLives, setTotalLives] = useState(3);
 
   return (
     <GameContext.Provider
       value={{
-        audio,
-        setAudio,
-        currentTime,
-        setCurrentTime,
-        duration,
-        setDuration,
+        levelResults,
+        setLevelResults,
+        currentLevel,
+        setCurrentLevel,
         gameStatus,
         setGameStatus,
         totalLives,
-        setTotalLives,
-        lives,
-        setLives,
       }}
     >
       {children}

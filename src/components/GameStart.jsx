@@ -14,21 +14,23 @@ function GameStart() {
       exit="exit"
       className="game__screen game__start-screen"
     >
-      <div className="game__start-screen-bg"></div>
-      <div className="game__start-screen-content">
-        <img src="assets/images/logo.svg" alt="" />
-        <h1>
-          Learn to DJ
-          <br /> Step by Step️
-        </h1>
-        <button
-          className="btn"
-          onClick={() => {
-            setGameStatus("play");
-          }}
-        >
-          Play
-        </button>
+      <div className="game__screen-bg"></div>
+      <div className="game__screen-inner">
+        <div className="game__start-screen-content">
+          <img src="assets/images/logo.svg" alt="" />
+          <h1>
+            Learn to DJ
+            <br /> Step by Step️
+          </h1>
+          <button
+            className="btn"
+            onClick={() => {
+              setGameStatus("levels");
+            }}
+          >
+            Play
+          </button>
+        </div>
       </div>
     </motion.div>
   );

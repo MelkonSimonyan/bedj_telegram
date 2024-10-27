@@ -22,6 +22,13 @@ function App() {
 
     if (response.data) {
       if (response.data instanceof Object) {
+        response.data.levels.forEach((level) => {
+          if (level.image) {
+            const img = new Image();
+            img.src = level.image;
+          }
+        });
+
         setInitData(response.data);
       } else {
         setInitDataError("initData.json is not a valid json file");
@@ -38,6 +45,7 @@ function App() {
     const images = [
       "assets/images/logo.svg",
       "assets/images/start-bg.svg",
+      "assets/images/level-default.jpg",
       "assets/images/eq-left.png",
       "assets/images/eq-right.png",
       "assets/images/win-bg.svg",

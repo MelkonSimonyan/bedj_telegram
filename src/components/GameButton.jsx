@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useGame } from "../context/gameContext";
 import { secondsToMmSsMs } from "../lib/functions";
 
 function GameButtonTimer({ data, currentTime }) {
@@ -7,8 +6,7 @@ function GameButtonTimer({ data, currentTime }) {
     <div className="panel-row__timer-wrapper">
       {data.actions
         .filter(
-          (item) =>
-            currentTime <= item.time + 0.5 && currentTime >= item.time - 3
+          (item) => currentTime <= item.time && currentTime >= item.time - 5
         )
         .map((item) => (
           <div
@@ -24,8 +22,7 @@ function GameButtonTimer({ data, currentTime }) {
   );
 }
 
-function GameButton({ data, type, text }) {
-  const { currentTime, setLives } = useGame();
+function GameButton({ currentTime, setLives, data, type, text }) {
   const [missingItem, setMissingItem] = useState(null);
   const [value, setValue] = useState(data.default);
   const [error, setError] = useState(false);

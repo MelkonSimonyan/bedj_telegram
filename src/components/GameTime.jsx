@@ -1,10 +1,7 @@
 import React from "react";
 import { secondsToMmSsMs } from "../lib/functions";
-import { useGame } from "../context/gameContext";
 
-function GameTime() {
-  const { currentTime, duration } = useGame();
-
+function GameTime({ currentTime, duration }) {
   return (
     <div className="progress">
       <span className="progress__text">{secondsToMmSsMs(currentTime)}</span>

@@ -2,8 +2,8 @@ import React from "react";
 import { useGame } from "../context/gameContext";
 import { MdStar } from "react-icons/md";
 
-function GameLives() {
-  const { lives, totalLives } = useGame();
+function GameLives({ lives }) {
+  const { totalLives } = useGame();
 
   return (
     <div className="lives">
