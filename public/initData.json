@@ -8,11 +8,11 @@
         "left_h": "up",
         "left_l": "up",
         "left_play": "on",
-        "left_fader": "6",
+        "left_fader": "12",
         "right_h": "up",
         "right_l": "down",
         "right_play": "on",
-        "right_fader": "6"
+        "right_fader": "12"
       },
       "actions": {
         "00:13.0": {
@@ -27,27 +27,27 @@
         },
         "00:31.0": {
           "button": "left_fader",
-          "value": "5",
+          "value": "10",
           "title": "FADER DOWN: SLOWLY"
         },
         "00:34.0": {
           "button": "left_fader",
-          "value": "4",
+          "value": "8",
           "title": "FADER DOWN: SLOWLY"
         },
         "00:37.0": {
           "button": "left_fader",
-          "value": "3",
+          "value": "6",
           "title": "FADER DOWN: SLOWLY"
         },
         "00:40.0": {
           "button": "left_fader",
-          "value": "2",
+          "value": "4",
           "title": "FADER DOWN: SLOWLY"
         },
         "00:43.0": {
           "button": "left_fader",
-          "value": "1",
+          "value": "2",
           "title": "FADER DOWN: SLOWLY"
         },
         "00:47.0": {
@@ -195,47 +195,47 @@
           "title": "BASS UP: INSTANTLY"
         },
         "01:18.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "11",
           "title": "FADER DOWN: SLOWLY"
         },
         "01:21.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "9",
           "title": "FADER UP: SLOWLY"
         },
         "01:24.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "7",
           "title": "FADER DOWN: SLOWLY"
         },
         "01:27.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "5",
           "title": "FADER UP: SLOWLY"
         },
         "01:30.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "4",
           "title": "FADER DOWN: SLOWLY"
         },
         "01:33.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "3",
           "title": "FADER UP: SLOWLY"
         },
         "01:36.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "2",
           "title": "FADER DOWN: SLOWLY"
         },
         "01:39.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "1",
           "title": "FADER UP: SLOWLY"
         },
         "01:41.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "0",
           "title": "FADER UP: SLOWLY"
         }
