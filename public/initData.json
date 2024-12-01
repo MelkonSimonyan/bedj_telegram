@@ -1,9 +1,10 @@
 {
+  "menuAudio": "music/menu.mp3",
   "levels": [
     {
       "title": "",
-      "image": "music/Free HW TG App One Transition.jpg",
-      "audio": "music/Free HW TG App One Transition.mp3",
+      "image": "music/0_beDJ.jpg",
+      "audio": "music/0_beDJ.mp3",
       "default": {
         "left_h": "up",
         "left_l": "up",
@@ -18,49 +19,80 @@
         "00:13.0": {
           "button": "left_l",
           "value": "down",
-          "title": " BASS DOWN: INSTANTLY "
+          "title": "LOW DOWN"
         },
         "00:16.0": {
           "button": "right_l",
           "value": "up",
-          "title": " BASS UP: INSTANTLY "
+          "title": "LOW UP"
         },
         "00:31.0": {
           "button": "left_fader",
           "value": "10",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "00:34.0": {
           "button": "left_fader",
           "value": "8",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "00:37.0": {
           "button": "left_fader",
           "value": "6",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "00:40.0": {
           "button": "left_fader",
           "value": "4",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "00:43.0": {
           "button": "left_fader",
           "value": "2",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
-        "00:47.0": {
+        "00:46.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         }
       }
     },
     {
-      "title": "DJ Glen",
-      "image": "music/Transition 3 - DJ Glen.jpg",
-      "audio": "music/Transition 3 - DJ Glen.mp3",
+      "title": "Trumpet",
+      "image": "music/1_Timmy_Trumpet.jpg",
+      "audio": "music/1_Timmy_Trumpet.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "up",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:15.0": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:28.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:41.0": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN"
+        }
+      }
+    },
+    {
+      "title": "ALOK",
+      "image": "music/2_ALOK.jpg",
+      "audio": "music/2_ALOK.mp3",
       "default": {
         "left_h": "up",
         "left_l": "up",
@@ -72,47 +104,81 @@
         "right_fader": "0"
       },
       "actions": {
-        "00:09.0": {
+        "00:07.5": {
           "button": "right_play",
-          "value": "on",
-          "title": "PLAY RIGHT DECK"
+          "value": "on"
         },
-        "00:10.0": {
+        "00:11.0": {
+          "button": "right_fader",
+          "value": "2",
+          "title": "FADER UP"
+        },
+        "00:15.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER UP"
+        },
+        "00:19.0": {
+          "button": "right_fader",
+          "value": "6",
+          "title": "FADER UP"
+        },
+        "00:23.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER UP"
+        },
+        "00:27.0": {
+          "button": "right_fader",
+          "value": "10",
+          "title": "FADER UP"
+        },
+        "00:30.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP: INSTANTLY"
+          "title": "FADER UP"
         },
-        "00:25.0": {
-          "button": "right_l",
-          "value": "up",
-          "title": "BASS UP: INSTANTLY"
-        },
-        "00:55.0": {
+        "00:33.0": {
           "button": "left_l",
           "value": "down",
-          "title": "BASS DOWN: INSTANTLY"
+          "title": "LOW DOWN"
         },
-        "01:10.0": {
-          "button": "right_l",
-          "value": "down",
-          "title": "BASS DOWN: INSTANTLY"
-        },
-        "01:25.0": {
-          "button": "left_fader",
-          "value": "0",
-          "title": "FADER DOWN: INSTANTLY"
-        },
-        "01:27.0": {
+        "00:38.0": {
           "button": "right_l",
           "value": "up",
-          "title": "BASS UP: INSTANTLY"
+          "title": "LOW UP"
+        },
+        "00:40.0": {
+          "button": "right_fader",
+          "value": "10",
+          "title": "FADER DOWN"
+        },
+        "00:43.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER DOWN"
+        },
+        "00:46.0": {
+          "button": "right_fader",
+          "value": "5",
+          "title": "FADER DOWN"
+        },
+        "00:49.0": {
+          "button": "right_fader",
+          "value": "3",
+          "title": "FADER DOWN"
+        },
+        "00:53.0": {
+          "button": "right_fader",
+          "value": "0",
+          "title": "FADER DOWN"
         }
       }
     },
     {
       "title": "Andrew Rayel",
-      "image": "music/Transition 2 - Andrew Rayel.jpg",
-      "audio": "music/Transition 2 - Andrew Rayel.mp3",
+      "image": "music/3_Andrew_Rayel.jpg",
+      "audio": "music/3_Andrew_Rayel.mp3",
       "default": {
         "left_h": "up",
         "left_l": "up",
@@ -126,118 +192,479 @@
       "actions": {
         "00:08.0": {
           "button": "right_play",
-          "value": "on",
-          "title": "PLAY RIGHT DECK"
+          "value": "on"
         },
         "00:10.0": {
           "button": "right_fader",
           "value": "1",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:13.0": {
           "button": "right_fader",
           "value": "2",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:16.0": {
           "button": "right_fader",
           "value": "3",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:19.0": {
           "button": "right_fader",
           "value": "4",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:22.0": {
           "button": "right_fader",
           "value": "5",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:25.0": {
           "button": "right_fader",
           "value": "6",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:27.0": {
           "button": "right_fader",
           "value": "7",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:30.0": {
           "button": "right_fader",
           "value": "8",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:33.0": {
           "button": "right_fader",
           "value": "9",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:36.0": {
           "button": "right_fader",
           "value": "10",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "00:39.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER UP"
         },
         "01:07.0": {
           "button": "left_l",
           "value": "down",
-          "title": "BASS DOWN: RAPIDLY"
+          "title": "LOW DOWN"
         },
         "01:09.0": {
           "button": "right_l",
           "value": "up",
-          "title": "BASS UP: INSTANTLY"
+          "title": "LOW UP"
         },
         "01:18.0": {
           "button": "left_fader",
           "value": "11",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:21.0": {
           "button": "left_fader",
           "value": "9",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:24.0": {
           "button": "left_fader",
           "value": "7",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:27.0": {
           "button": "left_fader",
           "value": "5",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:30.0": {
           "button": "left_fader",
           "value": "4",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:33.0": {
           "button": "left_fader",
           "value": "3",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:36.0": {
           "button": "left_fader",
           "value": "2",
-          "title": "FADER DOWN: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:39.0": {
           "button": "left_fader",
           "value": "1",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER DOWN"
         },
         "01:41.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER UP: SLOWLY"
+          "title": "FADER DOWN"
+        }
+      }
+    },
+    {
+      "title": "ANNA",
+      "image": "music/4_ANNA.jpg",
+      "audio": "music/4_ANNA.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:17.8": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:18.0": {
+          "button": "right_fader",
+          "value": "3",
+          "title": "FADER UP"
+        },
+        "00:22.0": {
+          "button": "right_fader",
+          "value": "6",
+          "title": "FADER UP"
+        },
+        "00:26.0": {
+          "button": "right_fader",
+          "value": "9",
+          "title": "FADER UP"
+        },
+        "00:30.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:30.2": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:32.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:44.4": {
+          "button": "right_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:46.2": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "01:00.4": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN"
+        }
+      }
+    },
+    {
+      "title": "DJ Glen",
+      "image": "music/5_DJ_Glen.jpg",
+      "audio": "music/5_DJ_Glen.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:09.0": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:10.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:25.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:55.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "01:10.0": {
+          "button": "right_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "01:25.0": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "LOW DOWN"
+        },
+        "01:27.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        }
+      }
+    },
+    {
+      "title": "Voorn",
+      "image": "music/6_Joris_Voorn.jpg",
+      "audio": "music/6_Joris_Voorn.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:17.0": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:24.4": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:25.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER UP"
+        },
+        "00:28.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER UP"
+        },
+        "00:31.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:32.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        }
+      }
+    },
+    {
+      "title": "Hardwell",
+      "image": "music/7_Hardwell.jpg",
+      "audio": "music/7_Hardwell.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:08.9": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:16.0": {
+          "button": "left_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:16.1": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:17.0": {
+          "button": "right_fader",
+          "value": "3",
+          "title": "FADER UP"
+        },
+        "00:20.0": {
+          "button": "right_fader",
+          "value": "6",
+          "title": "FADER UP"
+        },
+        "00:24.0": {
+          "button": "right_fader",
+          "value": "9",
+          "title": "FADER UP"
+        },
+        "00:28.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:29.5": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:29.6": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:44.5": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN"
+        }
+      }
+    },
+    {
+      "title": "Oliver Heldens",
+      "image": "music/8_Oliver_Heldens.jpg",
+      "audio": "music/8_Oliver_Heldens.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:17.3": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:25.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER UP"
+        },
+        "00:28.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER UP"
+        },
+        "00:31.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:32.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:32.1": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        }
+      }
+    },
+    {
+      "title": "Carl Cox",
+      "image": "music/9_Carl_Cox.jpg",
+      "audio": "music/9_Carl_Cox.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:17.3": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:25.0": {
+          "button": "right_fader",
+          "value": "4",
+          "title": "FADER UP"
+        },
+        "00:28.0": {
+          "button": "right_fader",
+          "value": "8",
+          "title": "FADER UP"
+        },
+        "00:31.0": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:32.0": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:32.1": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        }
+      }
+    },
+    {
+      "title": "Paul van&nbsp;Dyk",
+      "image": "music/10_Paul_van_Dyk.jpg",
+      "audio": "music/10_Paul_van_Dyk.mp3",
+      "default": {
+        "left_h": "up",
+        "left_l": "up",
+        "left_play": "on",
+        "left_fader": "12",
+        "right_h": "up",
+        "right_l": "down",
+        "right_play": "off",
+        "right_fader": "0"
+      },
+      "actions": {
+        "00:08.0": {
+          "button": "right_play",
+          "value": "on"
+        },
+        "00:15.5": {
+          "button": "right_fader",
+          "value": "12",
+          "title": "FADER UP"
+        },
+        "00:23.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:23.1": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "00:38.0": {
+          "button": "left_h",
+          "value": "down",
+          "title": "HIGH DOWN"
         }
       }
     }

@@ -16,7 +16,7 @@ function GameTitle({ data, currentTime }) {
 
   return (
     <>
-      {missingItem ? (
+      {missingItem?.title ? (
         <span>
           {missingItem.title} - {secondsToMmSsMs(missingItem.time)}
         </span>

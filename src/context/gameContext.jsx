@@ -13,6 +13,7 @@ export const GameProvider = ({ children }) => {
   const [currentLevel, setCurrentLevel] = useState({});
   const [gameStatus, setGameStatus] = useState("start");
   const [totalLives, setTotalLives] = useState(3);
+  const [menuAudio, setMenuAudio] = useState(null);
 
   return (
     <GameContext.Provider
@@ -24,6 +25,8 @@ export const GameProvider = ({ children }) => {
         gameStatus,
         setGameStatus,
         totalLives,
+        menuAudio,
+        setMenuAudio,
       }}
     >
       {children}

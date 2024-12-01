@@ -2,9 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useGame } from "../context/gameContext";
 import { fadeAnimation } from "../lib/constants";
+import { useInitData } from "../context/initDataContext";
 
 function GameWin() {
-  const { setGameStatus } = useGame();
+  const { initData } = useInitData();
+  const { setGameStatus, levelResults } = useGame();
 
   return (
     <motion.div
@@ -20,17 +22,21 @@ function GameWin() {
             <img src="assets/images/win-img.webp" alt="" />
           </div>
           <h2>WOW!</h2>
-          <a href="https://bedj.io/" className="btn" target="_blank">
-            BeDJ
-          </a>
           <button
-            className="link-btn"
+            className="btn"
             onClick={() => {
               setGameStatus("levels");
             }}
           >
-            Play Again
+            {levelResults.length < initData.levels.length
+              ? "Next"
+              : "Play Again"}
           </button>
+          {levelResults.length == initData.levels.length && (
+            <a href="https://bedj.io/" className="link-btn" target="_blank">
+              BeDJ
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

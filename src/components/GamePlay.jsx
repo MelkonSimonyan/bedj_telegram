@@ -10,8 +10,13 @@ import GameLives from "./GameLives";
 import GameTitle from "./GameTitle";
 
 function GamePlay() {
-  const { setLevelResults, setGameStatus, currentLevel, totalLives } =
-    useGame();
+  const {
+    setLevelResults,
+    setGameStatus,
+    currentLevel,
+    totalLives,
+    menuAudio,
+  } = useGame();
   const audioRef = useRef(null);
   const [audio, setAudio] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
@@ -20,6 +25,8 @@ function GamePlay() {
   const livesRef = useRef(lives);
   const [buttonsData, setButtonsData] = useState(null);
   const [titleData, setTitleData] = useState(null);
+  const [loaderVisible, setLoaderVisible] = useState(true);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const buttonsTempData = {
@@ -80,6 +87,28 @@ function GamePlay() {
   }, []);
 
   useEffect(() => {
+    let interval;
+    if (menuAudio) {
+      interval = setInterval(() => {
+        if (menuAudio.volume >= 0.075) {
+          menuAudio.volume -= 0.075;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
+    }
+
+    let timeout = setTimeout(() => {
+      setLoaderVisible(false);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  useEffect(() => {
     if (currentLevel.audio) {
       audioRef.current = new Audio(currentLevel.audio);
       setAudio(audioRef.current);
@@ -125,7 +154,7 @@ function GamePlay() {
 
   useEffect(() => {
     livesRef.current = lives;
-    if (lives <= 0) {
+    if (lives <= 0 && currentLevel.index != 0) {
       setTimeout(() => {
         audio.pause();
         audio.currentTime = 0;
@@ -135,14 +164,30 @@ function GamePlay() {
   }, [lives]);
 
   useEffect(() => {
-    if (buttonsData && titleData) {
-      setTimeout(() => {
-        if (audio) {
-          audio.play();
-        }
-      }, 350);
+    if (
+      buttonsData &&
+      titleData &&
+      duration &&
+      !loaderVisible &&
+      audio &&
+      !ready
+    ) {
+      if (menuAudio) {
+        menuAudio.pause();
+        menuAudio.currentTime = 0;
+      }
+
+      setReady(true);
     }
-  }, [buttonsData, titleData]);
+  }, [buttonsData, titleData, duration, loaderVisible, audio]);
+
+  useEffect(() => {
+    if (ready) {
+      setTimeout(() => {
+        audio.play();
+      }, 500);
+    }
+  }, [ready]);
 
   return (
     <motion.div
@@ -151,22 +196,47 @@ function GamePlay() {
       animate="animate"
       exit="exit"
       className="game__screen game__play-screen"
+      data-ready={ready}
     >
-      {duration == 0 && <div className="game__play-screen-loader"></div>}
+      <div className="game__play-screen-loader">
+        <div className="game__play-screen-loader-circle">
+          <img src="assets/images/loader-circle.svg" alt="" />
+        </div>
+        <div className="game__play-screen-loader-content">
+          <div className="game__play-screen-loader-icon-0">
+            <img src="assets/images/loader-icon-0.svg" alt="" />
+          </div>
+          <div className="game__play-screen-loader-title">
+            Mix tracks
+            <br /> as top DJs do
+          </div>
+          <div className="game__play-screen-loader-icon-1">
+            <img src="assets/images/loader-icon-1.svg" alt="" />
+            <img src="assets/images/loader-icon-1.svg" alt="" />
+          </div>
+          <div className="game__play-screen-loader-icon-2">
+            <img src="assets/images/loader-icon-2.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
       <div className="game__play-screen-header">
         <GameTime currentTime={currentTime} duration={duration} />
         <GameLives lives={lives} />
       </div>
+
       <div className="game__play-equalizer">
         <div className="game__play-equalizer-left"></div>
         <div className="game__play-equalizer-right"></div>
       </div>
+
       <div className="game__play-screen-title">
         <span className="game__play-screen-title-icon">
           <FiFastForward />
         </span>
         {titleData && <GameTitle data={titleData} currentTime={currentTime} />}
       </div>
+
       <div className="game__play-screen-content">
         {buttonsData && (
           <div className="game-play">
@@ -207,6 +277,7 @@ function GamePlay() {
                 </div>
               </div>
             </div>
+
             <div className="game-play__column game-play__column_right">
               <div className="game-play__column-inner">
                 <div className="game-play__column-header">

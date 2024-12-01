@@ -10,4 +10,13 @@
   --accent-light: #fee928;
   --green: #60aa43;
   --blue: #59b5f3;
+
+  --tg-theme-bg-color: var(--main-bg);
+  --tg-theme-text-color: var(--white);
+  --tg-theme-button-color: var(--accent);
+  --tg-theme-button-text-color: var(--dark-grey);
+  --tg-theme-secondary-bg-color: var(--black);
+  --tg-theme-header-bg-color: var(--main-bg);
+  --tg-theme-bottom-bar-bg-color: var(--main-bg);
+  --tg-theme-accent-text-color: var(--accent);
 }
