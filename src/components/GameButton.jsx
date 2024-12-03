@@ -146,7 +146,7 @@ function GameButton({ currentTime, setLives, data, type, text }) {
     }
   }, [clickError]);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (!error) {
       if (missingItem) {
         if (window.navigator.vibrate) {
@@ -182,7 +182,7 @@ function GameButton({ currentTime, setLives, data, type, text }) {
             <button
               className={`panel-eq-btn panel-eq-btn_value_${value}`}
               type="button"
-              onClick={handleClick}
+              onTouchStart={handleClick}
             >
               <GameButtonTimer
                 data={data}
@@ -217,7 +217,7 @@ function GameButton({ currentTime, setLives, data, type, text }) {
             <button
               className={`panel-play-btn panel-play-btn_value_${value}`}
               type="button"
-              onClick={handleClick}
+              onTouchStart={handleClick}
             >
               <GameButtonTimer
                 data={data}
@@ -261,7 +261,11 @@ function GameButton({ currentTime, setLives, data, type, text }) {
 
         {type === "fader" && (
           <>
-            <button type="button" className="panel-fader" onClick={handleClick}>
+            <button
+              type="button"
+              className="panel-fader"
+              onTouchStart={handleClick}
+            >
               <div className="panel-fader__line"></div>
               <div
                 className="panel-fader__handler"

@@ -149,27 +149,27 @@
           "title": "LOW UP"
         },
         "00:40.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "10",
           "title": "FADER DOWN"
         },
         "00:43.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "8",
           "title": "FADER DOWN"
         },
         "00:46.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "5",
           "title": "FADER DOWN"
         },
         "00:49.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "3",
           "title": "FADER DOWN"
         },
         "00:53.0": {
-          "button": "right_fader",
+          "button": "left_fader",
           "value": "0",
           "title": "FADER DOWN"
         }
@@ -596,34 +596,64 @@
         "right_fader": "0"
       },
       "actions": {
-        "00:17.3": {
+        "00:16.0": {
           "button": "right_play",
           "value": "on"
         },
-        "00:25.0": {
+        "00:30.0": {
+          "button": "left_l",
+          "value": "down",
+          "title": "LOW DOWN"
+        },
+        "00:34.0": {
           "button": "right_fader",
-          "value": "4",
+          "value": "3",
           "title": "FADER UP"
         },
-        "00:28.0": {
+        "00:37.0": {
           "button": "right_fader",
-          "value": "8",
+          "value": "6",
           "title": "FADER UP"
         },
-        "00:31.0": {
+        "00:40.0": {
+          "button": "right_fader",
+          "value": "9",
+          "title": "FADER UP"
+        },
+        "00:42.0": {
           "button": "right_fader",
           "value": "12",
           "title": "FADER UP"
         },
-        "00:32.0": {
+        "00:44.5": {
           "button": "right_l",
           "value": "up",
           "title": "LOW UP"
         },
-        "00:32.1": {
-          "button": "left_l",
+        "00:56.9": {
+          "button": "right_l",
           "value": "down",
           "title": "LOW DOWN"
+        },
+        "00:58.7": {
+          "button": "right_l",
+          "value": "up",
+          "title": "LOW UP"
+        },
+        "01:09.4": {
+          "button": "left_fader",
+          "value": "8",
+          "title": "FADER DOWN"
+        },
+        "01:11.0": {
+          "button": "left_fader",
+          "value": "4",
+          "title": "FADER DOWN"
+        },
+        "01:12.8": {
+          "button": "left_fader",
+          "value": "0",
+          "title": "FADER DOWN"
         }
       }
     },

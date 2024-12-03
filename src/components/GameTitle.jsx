@@ -5,7 +5,7 @@ function GameTitle({ data, currentTime }) {
   const [missingItem, setMissingItem] = useState(null);
 
   useEffect(() => {
-    const item = data.find((item) => currentTime <= item.time + 1);
+    const item = data.find((item) => currentTime <= item.time);
 
     if (item) {
       setMissingItem(item);
