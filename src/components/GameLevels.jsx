@@ -70,7 +70,7 @@ const GameLevelThumb = forwardRef(({ index, level }, ref) => {
 
 function GameLevels() {
   const { initData } = useInitData();
-  const { levelResults, menuAudio } = useGame();
+  const { levelResults, setLevelResults, setGameStatus, menuAudio } = useGame();
   const parentRef = useRef(null);
   const cardRefs = useRef([]);
   const [lastActiveIndex, setLastActiveIndex] = useState(
@@ -116,8 +116,9 @@ function GameLevels() {
           <button
             className="btn"
             onClick={() => {
+              setGameStatus("start");
+              setLevelResults([]);
               localStorage.removeItem("levelResults");
-              window.location.reload();
             }}
           >
             Play Again
