@@ -27,6 +27,17 @@ function GamePlay() {
   const [titleData, setTitleData] = useState(null);
   const [loaderVisible, setLoaderVisible] = useState(true);
   const [ready, setReady] = useState(false);
+  const [helpVisible, setHelpVisible] = useState(currentLevel.index == 0);
+  const [timerVisible, setTimerVisible] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
     const buttonsTempData = {
@@ -189,6 +200,10 @@ function GamePlay() {
     }
   }, [ready]);
 
+  useEffect(() => {
+    console.log(timerVisible);
+  }, [timerVisible]);
+
   return (
     <motion.div
       variants={fadeAnimation}
@@ -198,27 +213,29 @@ function GamePlay() {
       className="game__screen game__play-screen"
       data-ready={ready}
     >
-      <div className="game__play-screen-loader">
-        <div className="game__play-screen-loader-circle">
-          <img src="assets/images/loader-circle.svg" alt="" />
+      {!helpVisible && (
+        <div className="game__play-screen-loader">
+          <div className="game__play-screen-loader-circle">
+            <img src="assets/images/loader-circle.svg" alt="" />
+          </div>
+          <div className="game__play-screen-loader-content">
+            <div className="game__play-screen-loader-icon-0">
+              <img src="assets/images/loader-icon-0.svg" alt="" />
+            </div>
+            <div className="game__play-screen-loader-title">
+              Mix tracks
+              <br /> as top DJs do
+            </div>
+            <div className="game__play-screen-loader-icon-1">
+              <img src="assets/images/loader-icon-1.svg" alt="" />
+              <img src="assets/images/loader-icon-1.svg" alt="" />
+            </div>
+            <div className="game__play-screen-loader-icon-2">
+              <img src="assets/images/loader-icon-2.svg" alt="" />
+            </div>
+          </div>
         </div>
-        <div className="game__play-screen-loader-content">
-          <div className="game__play-screen-loader-icon-0">
-            <img src="assets/images/loader-icon-0.svg" alt="" />
-          </div>
-          <div className="game__play-screen-loader-title">
-            Mix tracks
-            <br /> as top DJs do
-          </div>
-          <div className="game__play-screen-loader-icon-1">
-            <img src="assets/images/loader-icon-1.svg" alt="" />
-            <img src="assets/images/loader-icon-1.svg" alt="" />
-          </div>
-          <div className="game__play-screen-loader-icon-2">
-            <img src="assets/images/loader-icon-2.svg" alt="" />
-          </div>
-        </div>
-      </div>
+      )}
 
       <div className="game__play-screen-header">
         <GameTime currentTime={currentTime} duration={duration} />
@@ -237,6 +254,28 @@ function GamePlay() {
         {titleData && <GameTitle data={titleData} currentTime={currentTime} />}
       </div>
 
+      {helpVisible && (
+        <div className="play-help-bg">
+          {!timerVisible.find((item) => item) && (
+            <div className="play-help-bg__content">
+              <div className="play-help-bg__icon-1">
+                <img src="assets/images/loader-icon-1.svg" alt="" />
+              </div>
+              <div className="play-help-bg__icon-2">
+                <img src="assets/images/loader-icon-3.svg" alt="" />
+              </div>
+              <div className="play-help-bg__icon-3">
+                <img src="assets/images/loader-icon-4.svg" alt="" />
+              </div>
+              <div className="play-help-bg__title">
+                Follow
+                <br /> the prompts
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       <div className="game__play-screen-content">
         {buttonsData && (
           <div className="game-play">
@@ -252,6 +291,8 @@ function GamePlay() {
                     data={buttonsData.left_h}
                     type="rotate"
                     text="H"
+                    id="0"
+                    setParentTimerVisible={setTimerVisible}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -259,12 +300,16 @@ function GamePlay() {
                     data={buttonsData.left_l}
                     type="rotate"
                     text="L"
+                    id="1"
+                    setParentTimerVisible={setTimerVisible}
                   />
                   <GameButton
                     currentTime={currentTime}
                     setLives={setLives}
                     data={buttonsData.left_fader}
                     type="fader"
+                    id="2"
+                    setParentTimerVisible={setTimerVisible}
                   />
                 </div>
                 <div className="game-play__column-footer">
@@ -273,6 +318,8 @@ function GamePlay() {
                     setLives={setLives}
                     data={buttonsData.left_play}
                     type="play"
+                    id="3"
+                    setParentTimerVisible={setTimerVisible}
                   />
                 </div>
               </div>
@@ -290,6 +337,8 @@ function GamePlay() {
                     data={buttonsData.right_h}
                     type="rotate"
                     text="H"
+                    id="4"
+                    setParentTimerVisible={setTimerVisible}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -297,12 +346,16 @@ function GamePlay() {
                     data={buttonsData.right_l}
                     type="rotate"
                     text="L"
+                    id="5"
+                    setParentTimerVisible={setTimerVisible}
                   />
                   <GameButton
                     currentTime={currentTime}
                     setLives={setLives}
                     data={buttonsData.right_fader}
                     type="fader"
+                    id="6"
+                    setParentTimerVisible={setTimerVisible}
                   />
                 </div>
                 <div className="game-play__column-footer">
@@ -311,6 +364,8 @@ function GamePlay() {
                     setLives={setLives}
                     data={buttonsData.right_play}
                     type="play"
+                    id="7"
+                    setParentTimerVisible={setTimerVisible}
                   />
                 </div>
               </div>

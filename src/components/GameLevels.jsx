@@ -74,7 +74,7 @@ function GameLevels() {
   const parentRef = useRef(null);
   const cardRefs = useRef([]);
   const [lastActiveIndex, setLastActiveIndex] = useState(
-    levelResults.length < initData.levels.length ? levelResults.length : 0
+    levelResults.length - 1
   );
 
   useEffect(() => {
@@ -112,6 +112,16 @@ function GameLevels() {
               ref={(el) => (cardRefs.current[index] = el)}
             />
           ))}
+
+          <button
+            className="btn"
+            onClick={() => {
+              localStorage.removeItem("levelResults");
+              window.location.reload();
+            }}
+          >
+            Play Again
+          </button>
         </div>
       </div>
     </motion.div>

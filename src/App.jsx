@@ -62,6 +62,8 @@ function App() {
       "assets/images/loader-icon-0.svg",
       "assets/images/loader-icon-1.svg",
       "assets/images/loader-icon-2.svg",
+      "assets/images/loader-icon-3.svg",
+      "assets/images/loader-icon-4.svg",
     ];
 
     images.forEach((item) => {

@@ -82,7 +82,15 @@ function GameButtonTimer({ data, currentTime, value }) {
   );
 }
 
-function GameButton({ currentTime, setLives, data, type, text }) {
+function GameButton({
+  currentTime,
+  setLives,
+  data,
+  type,
+  text,
+  id,
+  setParentTimerVisible,
+}) {
   const { currentLevel } = useGame();
   const [missingItem, setMissingItem] = useState(null);
   const [timerVisible, setTimerVisible] = useState(false);
@@ -116,14 +124,23 @@ function GameButton({ currentTime, setLives, data, type, text }) {
       setMissingItem(null);
     }
 
-    setTimerVisible(
+    let timerVisibility =
       data.actions.filter(
         (item) =>
           item.time >= currentTime &&
           item.time <= currentTime + 4 &&
           item.value != value
-      ).length > 0
-    );
+      ).length > 0;
+
+    setTimerVisible(timerVisibility);
+
+    if (helpVisible) {
+      setParentTimerVisible((temp) => {
+        const newArray = [...temp];
+        newArray[id] = timerVisibility;
+        return newArray;
+      });
+    }
   }, [currentTime]);
 
   useEffect(() => {
@@ -167,11 +184,6 @@ function GameButton({ currentTime, setLives, data, type, text }) {
 
   return (
     <>
-      {helpVisible && (
-        <div
-          className={`play-help-bg ${timerVisible ? "is-visible" : ""}`}
-        ></div>
-      )}
       <div
         className={`panel-row panel-row_type_${type} ${
           error || clickError ? "is-error" : ""
@@ -197,12 +209,8 @@ function GameButton({ currentTime, setLives, data, type, text }) {
               </span>
             </button>
 
-            {helpVisible && (
-              <div
-                className={`play-help-tooltip ${
-                  timerVisible ? "is-visible" : ""
-                }`}
-              >
+            {helpVisible && timerVisible && (
+              <div className="play-help-tooltip">
                 <span>
                   Tap
                   <br /> here
@@ -244,12 +252,8 @@ function GameButton({ currentTime, setLives, data, type, text }) {
               )}
             </button>
 
-            {helpVisible && (
-              <div
-                className={`play-help-tooltip ${
-                  timerVisible ? "is-visible" : ""
-                }`}
-              >
+            {helpVisible && timerVisible && (
+              <div className="play-help-tooltip">
                 <span>
                   Tap
                   <br /> here
@@ -273,12 +277,8 @@ function GameButton({ currentTime, setLives, data, type, text }) {
                   top: (12 - value) * (100 / 12) + "%",
                 }}
               >
-                {helpVisible && (
-                  <div
-                    className={`play-help-tooltip ${
-                      timerVisible ? "is-visible" : ""
-                    }`}
-                  >
+                {helpVisible && timerVisible && (
+                  <div className="play-help-tooltip">
                     <span>
                       Tap
                       <br /> here
