@@ -811,10 +811,6 @@ body,
   min-height: 1px;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
 }
 
 .game-play {
