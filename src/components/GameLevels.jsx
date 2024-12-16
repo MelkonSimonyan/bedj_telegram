@@ -113,7 +113,7 @@ function GameLevels() {
             />
           ))}
 
-          <button
+          {/* <button
             className="btn"
             onClick={() => {
               setGameStatus("start");
@@ -122,7 +122,7 @@ function GameLevels() {
             }}
           >
             Play Again
-          </button>
+          </button> */}
         </div>
       </div>
     </motion.div>
