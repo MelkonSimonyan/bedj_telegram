@@ -542,6 +542,11 @@ body,
   transition: 0.15s ease-in-out;
 }
 
+.game__play-screen[data-ready="false"] .game__play-screen-loader {
+  opacity: 1;
+  visibility: visible;
+}
+
 .play-help-bg {
   opacity: 1;
   visibility: visible;
@@ -570,6 +575,17 @@ body,
   text-align: center;
   width: 100%;
   margin-bottom: -10px;
+}
+
+.play-help-bg__content {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.15s ease-in-out;
+}
+
+.play-help-bg__content.is-visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .game__play-screen-loader-icon-0,

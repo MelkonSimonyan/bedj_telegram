@@ -256,23 +256,25 @@ function GamePlay() {
 
       {helpVisible && (
         <div className="play-help-bg">
-          {!timerVisible.find((item) => item) && (
-            <div className="play-help-bg__content">
-              <div className="play-help-bg__icon-1">
-                <img src="assets/images/loader-icon-1.svg" alt="" />
-              </div>
-              <div className="play-help-bg__icon-2">
-                <img src="assets/images/loader-icon-3.svg" alt="" />
-              </div>
-              <div className="play-help-bg__icon-3">
-                <img src="assets/images/loader-icon-4.svg" alt="" />
-              </div>
-              <div className="play-help-bg__title">
-                Follow
-                <br /> the prompts
-              </div>
+          <div
+            className={`play-help-bg__content ${
+              !timerVisible.find((item) => item) ? "is-visible" : ""
+            }`}
+          >
+            <div className="play-help-bg__icon-1">
+              <img src="assets/images/loader-icon-1.svg" alt="" />
             </div>
-          )}
+            <div className="play-help-bg__icon-2">
+              <img src="assets/images/loader-icon-3.svg" alt="" />
+            </div>
+            <div className="play-help-bg__icon-3">
+              <img src="assets/images/loader-icon-4.svg" alt="" />
+            </div>
+            <div className="play-help-bg__title">
+              Follow
+              <br /> the prompts
+            </div>
+          </div>
         </div>
       )}
 
