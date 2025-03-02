@@ -1,5 +1,4 @@
 {
-  "menuAudio": "music/menu.mp3",
   "levels": [
     {
       "title": "",
@@ -19,42 +18,42 @@
         "00:13.0": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:16.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:31.0": {
           "button": "left_fader",
           "value": "10",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "00:34.0": {
           "button": "left_fader",
           "value": "8",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "00:37.0": {
           "button": "left_fader",
           "value": "6",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "00:40.0": {
           "button": "left_fader",
           "value": "4",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "00:43.0": {
           "button": "left_fader",
           "value": "2",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "00:46.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         }
       }
     },
@@ -80,12 +79,14 @@
         "00:28.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "РЕЗКО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:41.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "РЕЗКО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         }
       }
     },
@@ -111,67 +112,80 @@
         "00:11.0": {
           "button": "right_fader",
           "value": "2",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:15.0": {
           "button": "right_fader",
           "value": "4",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:19.0": {
           "button": "right_fader",
           "value": "6",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:23.0": {
           "button": "right_fader",
           "value": "8",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:27.0": {
           "button": "right_fader",
           "value": "10",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:30.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ",
+          "tooltip": "ПЛАВНО ПОДНИМАЕМ ФЕЙДЕР И ВЫВОДИМ ВТОРОЙ ТРЕК"
         },
         "00:33.0": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ",
+          "tooltip": "УБИРАЕМ БАСЫ"
         },
         "00:38.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ",
+          "tooltip": "ДОБАВЛЯЕМ БАСЫ"
         },
         "00:40.0": {
           "button": "left_fader",
           "value": "10",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "ПЛАВНО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         },
         "00:43.0": {
           "button": "left_fader",
           "value": "8",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "ПЛАВНО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         },
         "00:46.0": {
           "button": "left_fader",
           "value": "5",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "ПЛАВНО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         },
         "00:49.0": {
           "button": "left_fader",
           "value": "3",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "ПЛАВНО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         },
         "00:53.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ",
+          "tooltip": "ПЛАВНО ОПУСКАЕМ ФЕЙДЕР И УБИРАЕМ ПЕРВЫЙ ТРЕК"
         }
       }
     },
@@ -197,47 +211,47 @@
         "00:18.0": {
           "button": "right_fader",
           "value": "3",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:22.0": {
           "button": "right_fader",
           "value": "6",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:26.0": {
           "button": "right_fader",
           "value": "9",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:30.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:30.2": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:32.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:44.4": {
           "button": "right_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:46.2": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "01:00.4": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         }
       }
     },
@@ -263,32 +277,32 @@
         "00:10.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:25.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:55.0": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "01:10.0": {
           "button": "right_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "01:25.0": {
           "button": "left_fader",
           "value": "0",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "01:27.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         }
       }
     },
@@ -314,27 +328,27 @@
         "00:24.4": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:25.0": {
           "button": "right_fader",
           "value": "4",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:28.0": {
           "button": "right_fader",
           "value": "8",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:31.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:32.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         }
       }
     },
@@ -356,12 +370,12 @@
         "00:08.9": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:16.0": {
           "button": "left_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:16.1": {
           "button": "right_play",
@@ -370,37 +384,37 @@
         "00:17.0": {
           "button": "right_fader",
           "value": "3",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:20.0": {
           "button": "right_fader",
           "value": "6",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:24.0": {
           "button": "right_fader",
           "value": "9",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:28.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:29.5": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:29.6": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:44.5": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         }
       }
     },
@@ -426,27 +440,27 @@
         "00:25.0": {
           "button": "right_fader",
           "value": "4",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:28.0": {
           "button": "right_fader",
           "value": "8",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:31.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:32.0": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:32.1": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         }
       }
     },
@@ -472,57 +486,57 @@
         "00:30.0": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:34.0": {
           "button": "right_fader",
           "value": "3",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:37.0": {
           "button": "right_fader",
           "value": "6",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:40.0": {
           "button": "right_fader",
           "value": "9",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:42.0": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:44.5": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:56.9": {
           "button": "right_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:58.7": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "01:09.4": {
           "button": "left_fader",
           "value": "8",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "01:11.0": {
           "button": "left_fader",
           "value": "4",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         },
         "01:12.8": {
           "button": "left_fader",
           "value": "0",
-          "title": "FADER DOWN"
+          "title": "ФЕЙДЕР ВНИЗ"
         }
       }
     },
@@ -548,17 +562,17 @@
         "00:15.5": {
           "button": "right_fader",
           "value": "12",
-          "title": "FADER UP"
+          "title": "ФЕЙДЕР ВВЕРХ"
         },
         "00:23.0": {
           "button": "left_l",
           "value": "down",
-          "title": "LOW DOWN"
+          "title": "БАСЫ ВНИЗ"
         },
         "00:23.1": {
           "button": "right_l",
           "value": "up",
-          "title": "LOW UP"
+          "title": "БАСЫ ВВЕРХ"
         },
         "00:38.0": {
           "button": "left_h",

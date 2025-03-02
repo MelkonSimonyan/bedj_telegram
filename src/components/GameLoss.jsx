@@ -19,14 +19,14 @@ function GameLoss() {
           <div className="game__screen-image">
             <img src="assets/images/loss-img.gif" alt="" />
           </div>
-          <h2>Don't Worry</h2>
+          <h2>Не парься !</h2>
           <button
             className="btn"
             onClick={() => {
               setGameStatus("levels");
             }}
           >
-            Play Again
+            Ещё раз
           </button>
         </div>
       </div>

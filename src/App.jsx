@@ -7,6 +7,7 @@ import { useGame } from "./context/gameContext";
 
 function App() {
   const { setMenuAudio } = useGame();
+
   const {
     initData,
     setInitData,
@@ -33,14 +34,12 @@ function App() {
           }
         });
 
-        if (response.data.menuAudio) {
-          setMenuAudio(new Audio(response.data.menuAudio));
-        }
+        setMenuAudio(new Audio("assets/audio/menu.mp3"));
       } else {
-        setInitDataError("initData.json is not a valid json file");
+        setInitDataError("Файл initData.json содержит ошибку.");
       }
     } else {
-      setInitDataError("An error occurred, please reload the page.");
+      setInitDataError("Произошла ошибка, пожалуйста, перезагрузите страницу.");
       console.error(error);
     }
   };
@@ -50,10 +49,14 @@ function App() {
 
     const images = [
       "assets/images/logo.svg",
+      "assets/images/headphones.svg",
       "assets/images/start-bg.svg",
       "assets/images/level-default.jpg",
       "assets/images/eq-left.png",
       "assets/images/eq-right.png",
+      "assets/images/help-bg.svg",
+      "assets/images/help-screen-img-1.svg",
+      "assets/images/help-screen-img-2.svg",
       "assets/images/win-bg.svg",
       "assets/images/loss-bg.svg",
       "assets/images/win-img.webp",

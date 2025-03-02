@@ -14,6 +14,9 @@ export const GameProvider = ({ children }) => {
   const [gameStatus, setGameStatus] = useState("start");
   const [totalLives, setTotalLives] = useState(3);
   const [menuAudio, setMenuAudio] = useState(null);
+  const [helpTooltipsVisible, setHelpTooltipsVisible] = useState(false);
+  const [helpScreensVisible, setHelpScreensVisible] = useState(false);
+  const [helpScreenIndex, setHelpScreenIndex] = useState(0);
 
   return (
     <GameContext.Provider
@@ -27,6 +30,12 @@ export const GameProvider = ({ children }) => {
         totalLives,
         menuAudio,
         setMenuAudio,
+        helpTooltipsVisible,
+        setHelpTooltipsVisible,
+        helpScreensVisible,
+        setHelpScreensVisible,
+        helpScreenIndex,
+        setHelpScreenIndex,
       }}
     >
       {children}

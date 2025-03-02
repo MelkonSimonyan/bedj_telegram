@@ -28,7 +28,7 @@ function GameWin() {
               setGameStatus("levels");
             }}
           >
-            Next
+            Дальше
           </button>
           {/*levelResults.length == initData.levels.length && (
             <a href="https://bedj.io/" className="link-btn" target="_blank">

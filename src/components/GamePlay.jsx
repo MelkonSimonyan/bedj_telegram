@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FiFastForward } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useGame } from "../context/gameContext";
 import { mmSsMsToSeconds } from "../lib/functions";
 import { fadeAnimation } from "../lib/constants";
@@ -8,6 +8,34 @@ import GameButton from "./GameButton";
 import GameTime from "./GameTime";
 import GameLives from "./GameLives";
 import GameTitle from "./GameTitle";
+import GameHelpScreens from "./GameHelpScreens";
+import GamePlayLoader from "./GamePlayLoader";
+import GameHelpBg from "./GameHelpBg";
+
+function GameTooltip({ tooltip, setTooltip }) {
+  const [tooltipText, setTooltipText] = useState("");
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    if (tooltip) {
+      setTooltipText(tooltip);
+
+      clearTimeout(timeoutRef.current);
+
+      timeoutRef.current = setTimeout(() => {
+        setTooltip(null);
+      }, 2000);
+    }
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [tooltip, setTooltip]);
+
+  return (
+    <div className={`game-tooltip ${tooltip ? "is-visible" : ""}`}>
+      <span>{tooltipText}</span>
+    </div>
+  );
+}
 
 function GamePlay() {
   const {
@@ -16,6 +44,11 @@ function GamePlay() {
     currentLevel,
     totalLives,
     menuAudio,
+    helpTooltipsVisible,
+    setHelpTooltipsVisible,
+    helpScreensVisible,
+    setHelpScreensVisible,
+    setHelpScreenIndex,
   } = useGame();
   const audioRef = useRef(null);
   const [audio, setAudio] = useState(null);
@@ -27,7 +60,7 @@ function GamePlay() {
   const [titleData, setTitleData] = useState(null);
   const [loaderVisible, setLoaderVisible] = useState(true);
   const [ready, setReady] = useState(false);
-  const [helpVisible, setHelpVisible] = useState(currentLevel.index == 0);
+  const [tooltip, setTooltip] = useState(null);
   const [timerVisible, setTimerVisible] = useState([
     false,
     false,
@@ -40,6 +73,16 @@ function GamePlay() {
   ]);
 
   useEffect(() => {
+    if (currentLevel.index == 0) {
+      setHelpTooltipsVisible(true);
+      setHelpScreensVisible(true);
+      setHelpScreenIndex(1);
+    } else {
+      setHelpTooltipsVisible(false);
+      setHelpScreensVisible(false);
+      setHelpScreenIndex(0);
+    }
+
     const buttonsTempData = {
       left_h: {
         default: "",
@@ -85,6 +128,7 @@ function GamePlay() {
       buttonsTempData[currentLevel.actions[idx].button].actions.push({
         time: mmSsMsToSeconds(idx),
         value: currentLevel.actions[idx].value,
+        tooltip: currentLevel.actions[idx].tooltip,
       });
 
       titleTempData.push({
@@ -95,29 +139,33 @@ function GamePlay() {
 
     setButtonsData(buttonsTempData);
     setTitleData(titleTempData);
-  }, []);
 
-  useEffect(() => {
     let interval;
     if (menuAudio) {
       interval = setInterval(() => {
         if (menuAudio.volume >= 0.075) {
           menuAudio.volume -= 0.075;
         } else {
+          menuAudio.volume = 0;
           clearInterval(interval);
         }
       }, 100);
     }
 
-    let timeout = setTimeout(() => {
-      setLoaderVisible(false);
-    }, 2000);
-
     return () => {
       clearInterval(interval);
-      clearTimeout(timeout);
     };
   }, []);
+
+  useEffect(() => {
+    if (!helpScreensVisible) {
+      let timeout = setTimeout(() => {
+        setLoaderVisible(false);
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [helpScreensVisible]);
 
   useEffect(() => {
     if (currentLevel.audio) {
@@ -200,10 +248,6 @@ function GamePlay() {
     }
   }, [ready]);
 
-  useEffect(() => {
-    console.log(timerVisible);
-  }, [timerVisible]);
-
   return (
     <motion.div
       variants={fadeAnimation}
@@ -213,28 +257,16 @@ function GamePlay() {
       className="game__screen game__play-screen"
       data-ready={ready}
     >
-      {!helpVisible && (
-        <div className="game__play-screen-loader">
-          <div className="game__play-screen-loader-circle">
-            <img src="assets/images/loader-circle.svg" alt="" />
-          </div>
-          <div className="game__play-screen-loader-content">
-            <div className="game__play-screen-loader-icon-0">
-              <img src="assets/images/loader-icon-0.svg" alt="" />
-            </div>
-            <div className="game__play-screen-loader-title">
-              Mix tracks
-              <br /> as top DJs do
-            </div>
-            <div className="game__play-screen-loader-icon-1">
-              <img src="assets/images/loader-icon-1.svg" alt="" />
-              <img src="assets/images/loader-icon-1.svg" alt="" />
-            </div>
-            <div className="game__play-screen-loader-icon-2">
-              <img src="assets/images/loader-icon-2.svg" alt="" />
-            </div>
-          </div>
-        </div>
+      {helpTooltipsVisible ? (
+        <>
+          <AnimatePresence>
+            {helpScreensVisible && <GameHelpScreens />}
+          </AnimatePresence>
+
+          {!helpScreensVisible && <GameHelpBg timerVisible={timerVisible} />}
+        </>
+      ) : (
+        <AnimatePresence>{!ready && <GamePlayLoader />}</AnimatePresence>
       )}
 
       <div className="game__play-screen-header">
@@ -248,39 +280,14 @@ function GamePlay() {
       </div>
 
       <div className="game__play-screen-title">
-        <span className="game__play-screen-title-icon">
-          <FiFastForward />
-        </span>
         {titleData && <GameTitle data={titleData} currentTime={currentTime} />}
       </div>
-
-      {helpVisible && (
-        <div className="play-help-bg">
-          <div
-            className={`play-help-bg__content ${
-              !timerVisible.find((item) => item) ? "is-visible" : ""
-            }`}
-          >
-            <div className="play-help-bg__icon-1">
-              <img src="assets/images/loader-icon-1.svg" alt="" />
-            </div>
-            <div className="play-help-bg__icon-2">
-              <img src="assets/images/loader-icon-3.svg" alt="" />
-            </div>
-            <div className="play-help-bg__icon-3">
-              <img src="assets/images/loader-icon-4.svg" alt="" />
-            </div>
-            <div className="play-help-bg__title">
-              Follow
-              <br /> the prompts
-            </div>
-          </div>
-        </div>
-      )}
 
       <div className="game__play-screen-content">
         {buttonsData && (
           <div className="game-play">
+            <GameTooltip tooltip={tooltip} setTooltip={setTooltip} />
+
             <div className="game-play__column game-play__column_left">
               <div className="game-play__column-inner">
                 <div className="game-play__column-header">
@@ -295,6 +302,7 @@ function GamePlay() {
                     text="H"
                     id="0"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -304,6 +312,7 @@ function GamePlay() {
                     text="L"
                     id="1"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -312,6 +321,7 @@ function GamePlay() {
                     type="fader"
                     id="2"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                 </div>
                 <div className="game-play__column-footer">
@@ -322,6 +332,7 @@ function GamePlay() {
                     type="play"
                     id="3"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                 </div>
               </div>
@@ -341,6 +352,7 @@ function GamePlay() {
                     text="H"
                     id="4"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -350,6 +362,7 @@ function GamePlay() {
                     text="L"
                     id="5"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                   <GameButton
                     currentTime={currentTime}
@@ -358,6 +371,7 @@ function GamePlay() {
                     type="fader"
                     id="6"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                 </div>
                 <div className="game-play__column-footer">
@@ -368,6 +382,7 @@ function GamePlay() {
                     type="play"
                     id="7"
                     setParentTimerVisible={setTimerVisible}
+                    setParentTooltip={setTooltip}
                   />
                 </div>
               </div>

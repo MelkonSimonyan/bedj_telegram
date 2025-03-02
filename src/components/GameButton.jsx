@@ -82,6 +82,28 @@ function GameButtonTimer({ data, currentTime, value }) {
   );
 }
 
+function GameButtonHelpers({ timerVisible, missingItem, value, clickError }) {
+  return (
+    <>
+      <div
+        className={`play-help-tooltip ${
+          timerVisible && missingItem && missingItem.value != value
+            ? "is-visible"
+            : ""
+        }`}
+      >
+        <span>
+          нажми
+          <br /> тут
+        </span>
+      </div>
+
+      <div className={`play-error-tooltip ${clickError ? "is-visible" : ""}`}>
+        <span>рано</span>
+      </div>
+    </>
+  );
+}
 function GameButton({
   currentTime,
   setLives,
@@ -90,14 +112,19 @@ function GameButton({
   text,
   id,
   setParentTimerVisible,
+  setParentTooltip,
 }) {
-  const { currentLevel } = useGame();
+  const {
+    currentLevel,
+    helpTooltipsVisible,
+    helpScreensVisible,
+    helpScreenIndex,
+  } = useGame();
   const [missingItem, setMissingItem] = useState(null);
   const [timerVisible, setTimerVisible] = useState(false);
   const [value, setValue] = useState(data.default);
   const [error, setError] = useState(false);
   const [clickError, setClickError] = useState(false);
-  const [helpVisible, setHelpVisible] = useState(currentLevel.index == 0);
 
   useEffect(() => {
     const item = data.actions.find(
@@ -134,7 +161,7 @@ function GameButton({
 
     setTimerVisible(timerVisibility);
 
-    if (helpVisible) {
+    if (helpTooltipsVisible) {
       setParentTimerVisible((temp) => {
         const newArray = [...temp];
         newArray[id] = timerVisibility;
@@ -164,13 +191,17 @@ function GameButton({
   }, [clickError]);
 
   const handleClick = (e) => {
-    if (!error) {
+    if (!error && !helpScreensVisible) {
       if (missingItem) {
         if (window.navigator.vibrate) {
           window.navigator.vibrate(50);
         }
 
         setValue(missingItem.value);
+
+        if (missingItem.tooltip) {
+          setParentTooltip(missingItem.tooltip);
+        }
       } else {
         if (window.navigator.vibrate) {
           window.navigator.vibrate(300);
@@ -187,7 +218,16 @@ function GameButton({
       <div
         className={`panel-row panel-row_type_${type} ${
           error || clickError ? "is-error" : ""
-        } ${helpVisible && timerVisible ? "is-visible" : ""}`}
+        } ${
+          (helpTooltipsVisible && timerVisible) ||
+          (helpScreensVisible &&
+            ((id == 4 && helpScreenIndex === 3) ||
+              (id == 5 && helpScreenIndex === 4) ||
+              (id == 6 && helpScreenIndex === 5) ||
+              (id == 7 && helpScreenIndex === 6)))
+            ? "is-visible"
+            : ""
+        }`}
       >
         {type === "rotate" && (
           <>
@@ -196,11 +236,13 @@ function GameButton({
               type="button"
               onTouchStart={handleClick}
             >
-              <GameButtonTimer
-                data={data}
-                currentTime={currentTime}
-                value={value}
-              />
+              {missingItem?.value != value && (
+                <GameButtonTimer
+                  data={data}
+                  currentTime={currentTime}
+                  value={value}
+                />
+              )}
               <span className="panel-eq-btn__icon">
                 <span className="panel-eq-btn__circle">
                   <span></span>
@@ -209,13 +251,13 @@ function GameButton({
               </span>
             </button>
 
-            {helpVisible && timerVisible && (
-              <div className="play-help-tooltip">
-                <span>
-                  Tap
-                  <br /> here
-                </span>
-              </div>
+            {helpTooltipsVisible && (
+              <GameButtonHelpers
+                timerVisible={timerVisible}
+                missingItem={missingItem}
+                value={value}
+                clickError={clickError}
+              />
             )}
           </>
         )}
@@ -227,11 +269,13 @@ function GameButton({
               type="button"
               onTouchStart={handleClick}
             >
-              <GameButtonTimer
-                data={data}
-                currentTime={currentTime}
-                value={value}
-              />
+              {missingItem?.value != value && (
+                <GameButtonTimer
+                  data={data}
+                  currentTime={currentTime}
+                  value={value}
+                />
+              )}
               {value === "on" ? (
                 <svg
                   viewBox="0 0 37 37"
@@ -252,13 +296,13 @@ function GameButton({
               )}
             </button>
 
-            {helpVisible && timerVisible && (
-              <div className="play-help-tooltip">
-                <span>
-                  Tap
-                  <br /> here
-                </span>
-              </div>
+            {helpTooltipsVisible && (
+              <GameButtonHelpers
+                timerVisible={timerVisible}
+                missingItem={missingItem}
+                value={value}
+                clickError={clickError}
+              />
             )}
           </>
         )}
@@ -277,20 +321,22 @@ function GameButton({
                   top: (12 - value) * (100 / 12) + "%",
                 }}
               >
-                {helpVisible && timerVisible && (
-                  <div className="play-help-tooltip">
-                    <span>
-                      Tap
-                      <br /> here
-                    </span>
-                  </div>
+                {helpTooltipsVisible && (
+                  <GameButtonHelpers
+                    timerVisible={timerVisible}
+                    missingItem={missingItem}
+                    value={value}
+                    clickError={clickError}
+                  />
                 )}
 
-                <GameButtonTimer
-                  data={data}
-                  currentTime={currentTime}
-                  value={value}
-                />
+                {missingItem?.value != value && (
+                  <GameButtonTimer
+                    data={data}
+                    currentTime={currentTime}
+                    value={value}
+                  />
+                )}
               </div>
             </button>
           </>
