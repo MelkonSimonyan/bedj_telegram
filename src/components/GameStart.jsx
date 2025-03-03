@@ -6,6 +6,13 @@ import { fadeAnimation } from "../lib/constants";
 function GameStart() {
   const { setGameStatus } = useGame();
 
+  useEffect(() => {
+    const video = document.getElementById("bgVideo");
+    if (video) {
+      video.play();
+    }
+  }, []);
+
   return (
     <motion.div
       variants={fadeAnimation}
@@ -15,8 +22,15 @@ function GameStart() {
       className="game__screen game__start-screen"
     >
       <div className="game__screen-bg">
-        <video autoPlay={true} muted={true} loop={true} playsInline>
-          <source src="assets/video/start.mp4" type="video/mp4" />
+        <video
+          id="bgVideo"
+          autoPlay
+          muted
+          loop
+          playsInline
+          webkit-playsinline="true"
+        >
+          <source src="assets/video/start2.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="game__screen-inner">
